@@ -14,9 +14,9 @@
      - Copy from: `Deploy_on_Docker_Container_using_Ansible_playbooks`
      
    - *Source Code Management:*
-      - Repository: `https://github.com/yankils/hello-world.git`
+      - Repository: `https://github.com/siddheshkachkure/sample-code.git`
       - Branches to build : `*/master`  
-   - *Poll SCM* :      - `* * * *`
+   - *Poll SCM* :      - `* * * * *`
 
    - *Build:*
      - Root POM:`pom.xml`
@@ -32,7 +32,7 @@
 	       - Remote directory: `//opt//docker`
 	       - Exec command: 
                 ```sh 
-                ansible-playbook -i /opt/docker/hosts /opt/docker/create-simple-devops-image.yml --limit localhost;
+                ansible-playbook -i /opt/docker/hosts /opt/docker/create-siddhuproject-image.yml --limit localhost;
                 ```
 
 Save and run the job.
@@ -49,7 +49,7 @@ Save and run the job.
       - *SSH Publishers*  
 	       - Exec command: 
                 ```sh 
-                ansible-playbook -i /opt/docker/hosts /opt/docker/kubernetes-valaxy-deployment.yml;
-                ansible-playbook -i /opt/docker/hosts /opt/docker/kubernetes-valaxy-service.yml;
+                ansible-playbook -i /opt/docker/hosts /opt/docker/kubernetes-siddhu-deployment.yml;
+                ansible-playbook -i /opt/docker/hosts /opt/docker/kubernetes-siddhu-service.yml;
                 ```
 Save and run the job.
