@@ -11,11 +11,11 @@
    # Pull tomcat latest image from dockerhub 
    From tomcat
    # Maintainer
-   MAINTAINER "AR Shankar" 
+   MAINTAINER "SIDDHESH RUPESH KACHKURE" 
 
    # copy war file on to container 
    COPY ./webapp.war /usr/local/tomcat/webapps
-1. Create `create-docker-image.yml` unser *`/opt/docker`* on Ansible server **[Get Help Here]()**
+1. Create `siddhupeoject-image.yml` unser *`/opt/docker`* on Ansible server **[Get Help Here]()**
    ```sh
    ---
    - hosts: all
@@ -24,11 +24,11 @@
 
      tasks:
      - name: building docker image
-       command: "docker build -t simple-devops-image ." 
+       command: "docker build -t siddhuproject-image ." 
        args:
          chdir: /opt/docker
    ```
-1. Create `create-docker-image.yml` under *`/opt/docker`* on Ansible server **[Get Help Here]()**
+1. Create `siddhuproject-image.yml` under *`/opt/docker`* on Ansible server **[Get Help Here]()**
    ```ssh
    ---
    - hosts: all
@@ -36,7 +36,7 @@
 
      tasks:
      - name: creating docker image using docker command
-       command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
+       command: docker run -d --name siddhuproject-container -p 8080:8080 siddhuproject-image
    ```
 
 ### Integration between Ansible-control-node and Jenkins
@@ -62,9 +62,9 @@ Enable connection between Ansible-control-node and Jenkins
      - Copy from: `Deploy_on_Container`
      
    - *Source Code Management:*
-      - Repository: `https://github.com/yankils/hello-world.git`
+      - Repository: `https://github.com/siddheshkachkure/sample-code.git`
       - Branches to build : `*/master`  
-   - *Poll SCM* :      - `* * * *`
+   - *Poll SCM* :      - `* * * * *`
 
    - *Build:*
      - Root POM:`pom.xml`
@@ -80,7 +80,7 @@ Enable connection between Ansible-control-node and Jenkins
 	       - Remote directory: `//opt//docker`
 	       - Exec command: 
                 ```sh 
-                ansible-playbook -i /opt/docker/hosts /opt/docker/create-docker-image.yml;
+                ansible-playbook -i /opt/docker/hosts /opt/docker/siddhuproject-image.yml;
                 ```
 
 Save and run the job now.
