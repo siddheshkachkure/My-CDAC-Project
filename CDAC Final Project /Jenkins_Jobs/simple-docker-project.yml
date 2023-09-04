@@ -3,15 +3,15 @@
   become: true
   tasks:
   - name: stop if we have old docker container
-    command: docker stop simple-devops-container
+    command: docker stop siddhuproject-container
     ignore_errors: yes
 
   - name: remove stopped docker container
-    command: docker rm simple-devops-container
+    command: docker rm siddhuproject-container
     ignore_errors: yes
 
   - name: remove current docker image
-    command: docker rmi simple-devops-image
+    command: docker rmi siddhuproject-image
     ignore_errors: yes
 #    register: result
 #    failed_when:
@@ -20,9 +20,9 @@
 
 
   - name: building docker image
-    command: docker build -t simple-devops-image .
+    command: docker build -t siddhuproject-image .
     args:
       chdir: /opt/docker
 
   - name: creating docker image
-    command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
+    command: docker run -d --name siddhuproject-container -p 8080:8080 sidduproject-image
