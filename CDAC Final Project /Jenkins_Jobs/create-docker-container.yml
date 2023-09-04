@@ -5,14 +5,14 @@
 
   tasks:
   - name: creating docker image using docker command
-    command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
+    command: docker run -d --name siddhuproject-container -p 8080:8080 siddhuproject-image
 	
 # option-2 : creating docker container using docker_container module 	
 #  tasks:
-#  - name: create simple-devops-container
+#  - name: create siddhuproject-container
 #    docker_container:
-#      name: simple-devops-container
-#      image: simple-devops-image
+#      name: siddhuproject-container
+#      image: siddhuproject-image
 #      state: present
 #      recreate: yes
 #      ports:
