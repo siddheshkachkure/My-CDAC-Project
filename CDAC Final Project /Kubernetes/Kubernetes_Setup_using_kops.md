@@ -36,17 +36,17 @@
 1. Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
    ```sh
    Routeh53 --> hosted zones --> created hosted zone  
-   Domain Name: valaxy.net
+   Domain Name: siddhu.net
    Type: Private hosted zone for Amzon VPC
    ```
 
 1. create an S3 bucket
    ```sh
-    aws s3 mb s3://demo.k8s.valaxy.net
+    aws s3 mb s3://siddhubucket.net
    ```
 1. Expose environment variable:
    ```sh
-    export KOPS_STATE_STORE=s3://demo.k8s.valaxy.net
+    export KOPS_STATE_STORE=s3://siddhubucket.net
    ```
 
 1. Create sshkeys before creating cluster
@@ -56,7 +56,7 @@
 
 1. Create kubernetes cluster definitions on S3 bucket
    ```sh
-   kops create cluster --cloud=aws --zones=ap-south-1b --name=demo.k8s.valaxy.net --dns-zone=valaxy.net --dns private 
+   kops create cluster --cloud=aws --zones=ap-south-1b --name=cluster.siddhu.net --dns-zone=siddhu.net --dns private 
     ```
 
 1. If you wish to update the cluster worker node sizes use below command 
@@ -66,7 +66,7 @@
 
 1. Create kubernetes cluser
     ```sh
-    kops update cluster demo.k8s.valaxy.net --yes
+    kops update cluster cluster.siddhu.net --yes
     ```
 
 1. Validate your cluster
@@ -81,14 +81,14 @@
 
 1. To delete cluster
     ```sh
-     kops delete cluster demo.k8s.valaxy.net --yes
+     kops delete cluster cluster.siddhu.net --yes
     ```
    
 #### Deploying Nginx pods on Kubernetes
 1. Deploying Nginx Container
     ```sh
     kubectl create deploy sample-nginx --image=nginx --replicas=2 --port=80
-    # kubectl deploy simple-devops-project --image=yankils/simple-devops-image --replicas=2 --port=8080
+    # kubectl deploy siddhuproject --image=siddheshkachkure/siddhuproject-image --replicas=2 --port=8080
     kubectl get all
     kubectl get pod
    ```
@@ -96,6 +96,6 @@
 1. Expose the deployment as service. This will create an ELB in front of those 2 containers and allow us to publicly access them.
    ```sh
    kubectl expose deployment sample-nginx --port=80 --type=LoadBalancer
-   # kubectl expose deployment simple-devops-project --port=8080 --type=LoadBalancer
+   # kubectl expose deployment siddhuproject --port=8080 --type=LoadBalancer
    kubectl get services -o wide
    ```
