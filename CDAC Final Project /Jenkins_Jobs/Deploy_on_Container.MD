@@ -10,7 +10,7 @@
    # Pull tomcat latest image from dockerhub 
    From tomcat
    # Maintainer
-   MAINTAINER "AR Shankar" 
+   MAINTAINER "SIDDHESH RUPESH KACHKURE" 
 
    # copy war file on to container 
    COPY ./webapp.war /usr/local/tomcat/webapps
@@ -37,9 +37,9 @@ Enable connection between Docker-host and Jenkins
      - Copy from: `Deploy_on_Docker_Host`
      
    - *Source Code Management:*
-      - Repository: `https://github.com/yankils/hello-world.git`
+      - Repository: `https://github.com/siddheshkachkure/sample-code.git`
       - Branches to build : `*/master`  
-   - *Poll SCM* :      - `* * * *`
+   - *Poll SCM* :      - `* * * * *`
 
    - *Build:*
      - Root POM:`pom.xml`
@@ -57,7 +57,7 @@ Enable connection between Docker-host and Jenkins
                 ```sh 
                 cd /home/dockeradmin;
                 docker build -t simple-devops-image .; 
-                docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image;
+                docker run -d --name siddhuproject-container -p 8080:8080 siddhuproject-image;
                 ```
 
 Save and run the job now.
