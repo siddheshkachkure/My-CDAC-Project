@@ -28,9 +28,9 @@
      - Copy from: `My_First_Maven_Build`
      
    - *Source Code Management:*
-      - Repository: `https://github.com/yankils/hello-world.git`
+      - Repository: `https://github.com/siddheshkachkure/sample-code.git`
       - Branches to build : `*/master`  
-   - *Poll SCM* :      - `* * * *`
+   - *Poll SCM* :      - `* * * * *`
 
    - *Build:*
      - Root POM:`pom.xml`
