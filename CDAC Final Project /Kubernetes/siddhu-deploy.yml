@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: siddhu-devops-project
-        image: yankils/simple-devops-image
+        image: siddheshkachkure/siddhuproject-image
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
