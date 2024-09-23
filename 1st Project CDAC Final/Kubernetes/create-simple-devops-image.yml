@@ -1,0 +1,19 @@
+---
+- hosts: ansible-server
+  become: true
+
+  tasks:
+  - name: create docker image using war file
+    command: docker build -t siddhuproject-image:latest .
+    args:
+      chdir: /opt/k8s-lab
+
+  - name: create tag to image
+    command: docker tag siddhuproject-image siddheshkachkure/siddhuproject-image
+
+  - name: push image on to dockerhub
+    command: docker push siddheshkachkure/siddhuproject-image
+
+  - name: remove docker images form ansible server
+    command: docker rmi siddhuproject-image:latest siddheshkachkure/siddhuproject-image
+    ignore_errors: yes
